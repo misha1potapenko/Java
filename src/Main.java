@@ -19,8 +19,7 @@ public class Main {
 
             }
         }
-        System.out.print("n! = ");
-        System.out.println(forFacktor);
+        System.out.printf("n! = %s",forFacktor);
         iScanner.close();
     }
 }
