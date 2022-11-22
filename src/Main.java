@@ -10,7 +10,17 @@ public class Main {
         int b = n + 1;
         int k = (n * b) / 2;
         System.out.print("Tn = ");
-        System.out.print(k);
+        System.out.println(k);
+        int forFacktor = 1;
+        for (int i = 1; i < n + 1; i++) {
+            if (n == 0) forFacktor = 1;
+            else {
+                forFacktor = forFacktor * i;
+
+            }
+        }
+        System.out.print("n! = ");
+        System.out.println(forFacktor);
         iScanner.close();
     }
 }
