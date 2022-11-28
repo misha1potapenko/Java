@@ -11,23 +11,31 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         try {
-            File file = new File("C:\\Users\\misha\\IdeaProjects\\secondSem\\semSecondString\\src\\text.txt");
-            //создаем объект FileReader для объекта File
-            FileReader fr = new FileReader(file);
+            FileReader fr = new FileReader("text.txt");
             //создаем BufferedReader с существующего FileReader для построчного считывания
             BufferedReader reader = new BufferedReader(fr);
             // считаем сначала первую строку
             String line = reader.readLine();
-            String[] words = line.split(" ");
-            System.out.println(line);
-            for (String word : words) {
-                System.out.println(word);
-            }
-//            while (line != null) {
-//                System.out.println(line);
-//                // считываем остальные строки в цикле
-//                line = reader.readLine();
-//            }
+            String line1 = line.replace(",","");
+            String[] words = line1.split(" ");
+            String forName = words[0];
+            String forCountry = words[1];
+            String forCity = words[2];
+            String[] name = forName.split(":");
+            String[] country = forCountry.split(":");
+            String[] city = forCity.split(":");
+            StringBuilder sql = new StringBuilder();
+            sql.append("SELECT * FROM students WHERE name = ");
+            sql.append(name[1]);
+            sql.append(" ");
+            sql.append("AND country = ");
+            sql.append(country[1]);
+            sql.append(" ");
+            sql.append("AND city = ");
+            sql.append(city[1]);
+            sql.append(" ");
+            System.out.println(sql);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
